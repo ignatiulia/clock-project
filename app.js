@@ -7,20 +7,27 @@ let secondsBox = document.getElementById('seconds');
 
 function getTime() {
   const time = new Date();
-  let hour = time.getHours();
-  let minutes = time.getMinutes();
-  let seconds = time.getSeconds();
+  let hour = timeDigits(time.getHours());
+  let minutes = timeDigits(time.getMinutes());
+  let seconds = timeDigits(time.getSeconds());
 
-  if (hour < 10) {
-    hour = '0' + hour;
-  }
+  // if (hour < 10) {
+  //   hour = '0' + hour;
+  // }
 
-  if (minutes < 10) {
-    minutes = '0' + minutes;
-  }
+  // if (minutes < 10) {
+  //   minutes = '0' + minutes;
+  // }
 
-  if (seconds < 10) {
-    seconds = '0' + seconds;
+  // if (seconds < 10) {
+  //   seconds = '0' + seconds;
+  // }
+
+  function timeDigits(time) {
+    if (time < 10) {
+      return '0' + time;
+    }
+    return time;
   }
 
   hourBox.innerText = `${hour}:`;
@@ -40,16 +47,23 @@ let yearBox = document.getElementById('year');
 
 function getDate() {
   const date = new Date();
-  let day = date.getDate();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
+  let day = dateDigits(date.getDate());
+  let month = dateDigits(date.getMonth() + 1);
+  let year = dateDigits(date.getFullYear());
 
-  if (day < 10) {
-    day = '0' + day;
-  }
+  // if (day < 10) {
+  //   day = '0' + day;
+  // }
 
-  if (month < 10) {
-    month = '0' + month;
+  // if (month < 10) {
+  //   month = '0' + month;
+  // }
+
+  function dateDigits(date) {
+    if (date < 10) {
+      return '0' + date;
+    }
+    return date;
   }
 
   dayBox.innerText = `${day}.`;
